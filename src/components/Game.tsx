@@ -49,10 +49,8 @@ const Game: React.FC = () => {
           MARGIN_POINT;
 
         if (pointCount > MAX_NONOVERLAP_COUNT) {
-          // Trường hợp cho phép chồng lên nhau
           validPosition = true;
         } else {
-          // Trường hợp không cho phép chồng
           validPosition = newPoints.every((point) => {
             const distance = Math.sqrt(
               Math.pow(x - point.x, 2) + Math.pow(y - point.y, 2)
@@ -85,12 +83,12 @@ const Game: React.FC = () => {
       const clickedPoint = points.find((p) => p.id === pointId);
       if (!clickedPoint || clickedPoint.isClicked) return;
 
+      setPoints((prev) =>
+        prev.map((p) => (p.id === pointId ? { ...p, isClicked: true } : p))
+      );
+
       if (clickedPoint.number === nextExpectedNumber) {
         // Correct order
-        setPoints((prev) =>
-          prev.map((p) => (p.id === pointId ? { ...p, isClicked: true } : p))
-        );
-
         setNextExpectedNumber((prev) => prev + 1);
 
         // Hide point after TIME_TO_HIDE_POINT
