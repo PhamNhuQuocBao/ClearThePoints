@@ -247,10 +247,10 @@ const Game: React.FC = () => {
             <input
               type="number"
               min="1"
-              max="20"
               value={pointCount}
               onChange={(e) => setPointCount(parseInt(e.target.value) || 1)}
               className="points-input"
+              style={{ width: "100%", maxWidth: "200px" }}
             />
           </label>
         </div>
