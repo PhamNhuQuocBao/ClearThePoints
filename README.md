@@ -1,4 +1,5 @@
 # Clear the points
+## Author - Phạm Như Quốc Bảo
 
 A small game built with **ReactJS** to practice reflexes and concentration.  
 The player needs to click the points in **ascending numerical order (1 → N)** as quickly as possible.
